@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TDM Tournament</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="logo">TDM <b>ARENA</b></div>
+  <nav id="nav"><a href="#home">Hoyga</a><a href="#register">Is diiwaan geli</a><a href="#standings">Natiijada</a><a href="#admin">Admin</a></nav>
+</header>
+<main>
+  <section class="view" id="view-home">
+    <div class="hero">
+      <p class="muted">Tartanka hadda socda</p>
+      <h1 id="t-name">Tartan ma jiro</h1>
+      <span id="t-badge" class="badge none"></span>
+      <p id="t-count" class="count"></p>
+      <p id="t-dates" class="muted"></p>
+      <a id="go-register" class="btn" href="#register">Is diiwaan geli</a>
+    </div>
+  </section>
+
+  <section class="view" id="view-register" hidden>
+    <h2>Is diiwaangelin</h2>
+    <p id="reg-note" class="note"></p>
+    <form id="reg-form" class="card">
+      <label>ID-ga ciyaarta (PUBG ID)<input id="f-id" inputmode="numeric" required></label>
+      <label>Magacaaga<input id="f-name" required></label>
+      <label>Lambarkaaga<input id="f-phone" inputmode="tel" required></label>
+      <button id="reg-btn" class="btn">Dir codsiga</button>
+    </form>
+    <div class="card">
+      <h3>Hubi xaaladda codsigaaga</h3>
+      <div class="row"><input id="chk-id" inputmode="numeric" placeholder="ID-gaaga"><button id="chk-btn" class="btn alt">Hubi</button></div>
+      <p id="chk-out"></p>
+    </div>
+  </section>
+
+  <section class="view" id="view-standings" hidden>
+    <h2>Rank-ka kooxaha</h2>
+    <div class="scroll"><table>
+      <thead><tr><th>#</th><th>Koox</th><th>Ciyaar</th><th>Guul</th><th>Kill</th><th>Dhibco</th></tr></thead>
+      <tbody id="st-body"></tbody>
+    </table></div>
+  </section>
+
+  <section class="view" id="view-admin" hidden>
+    <div id="ad-gate" class="card">
+      <h2>Admin</h2>
+      <form id="ad-login">
+        <label>Email<input id="ad-mail" type="email" required></label>
+        <label>Password<input id="ad-pass" type="password" required></label>
+        <button class="btn">Gal</button>
+      </form>
+    </div>
+    <div id="ad-panel" hidden>
+      <div class="row between"><h2>Maamulka</h2><button id="ad-out" class="btn alt">Ka bax</button></div>
+
+      <form id="ad-settings" class="card">
+        <h3>Tartanka</h3>
+        <label>Magaca tartanka<input id="s-name" required></label>
+        <label>Is diiwaangelintu waxay furmaysaa<input id="s-start" type="datetime-local" required></label>
+        <label>Is diiwaangelintu waxay xirmaysaa<input id="s-end" type="datetime-local" required></label>
+        <div class="row"><label>Dhibcaha guusha<input id="s-win" type="number" min="0" value="3"></label><label>Dhibcaha kill kasta<input id="s-kill" type="number" min="0" value="1"></label></div>
+        <button class="btn">Kaydi</button>
+      </form>
+
+      <div class="card"><h3>Codsiyada ciyaartoyda</h3>
+        <div class="scroll"><table><thead><tr><th>ID</th><th>Magac</th><th>Lambar</th><th>Xaalad</th><th></th></tr></thead><tbody id="ad-players"></tbody></table></div>
+      </div>
+
+      <form id="ad-team" class="card">
+        <h3>Koox cusub</h3>
+        <label>Magaca kooxda<input id="t-new" required></label>
+        <label>ID-yada ciyaartoyda (kala saar comma)<input id="t-ids" required></label>
+        <button class="btn">Ku dar koox</button>
+        <div id="ad-teams" class="chips"></div>
+      </form>
+
+      <form id="ad-match" class="card">
+        <h3>Natiijada ciyaarta</h3>
+        <div class="row"><label>Koox A<select id="m-a"></select></label><label>Kill A<input id="m-ka" type="number" min="0" value="0"></label></div>
+        <div class="row"><label>Koox B<select id="m-b"></select></label><label>Kill B<input id="m-kb" type="number" min="0" value="0"></label></div>
+        <label>Guuleystay<select id="m-w"><option value="A">Koox A</option><option value="B">Koox B</option></select></label>
+        <button class="btn">Kaydi natiijada</button>
+        <div id="ad-matches"></div>
+      </form>
+
+      <button id="ad-reset" class="btn danger">Tartan cusub (tirtir xogta oo dhan)</button>
+    </div>
+  </section>
+</main>
+<div id="toast" class="toast"></div>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
